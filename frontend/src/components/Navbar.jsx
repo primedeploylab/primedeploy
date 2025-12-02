@@ -49,7 +49,7 @@ const Navbar = () => {
               transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             >
               {settings?.logoUrl ? (
-                <img src={settings.logoUrl} alt="DeployPrime" className="h-12 md:h-14 max-h-14 object-contain" />
+                <img src={settings.logoUrl} alt="DeployPrime" className="h-20 md:h-24 max-h-24 object-contain" />
               ) : (
                 <span className="text-xl md:text-2xl font-bold text-primary drop-shadow-lg">DeployPrime</span>
               )}

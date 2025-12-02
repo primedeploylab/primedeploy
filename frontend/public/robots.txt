@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-domain.com/sitemap.xml
+# Block admin pages from search engines
+Disallow: /admin
+Disallow: /admin/*
+
+Sitemap: https://primedeploy.onrender.com/sitemap.xml
