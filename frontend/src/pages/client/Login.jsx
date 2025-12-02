@@ -44,39 +44,39 @@ const ClientLogin = () => {
           <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-softPurple/10 rounded-full blur-[120px]"></div>
         </div>
 
-        <div className="max-w-md w-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-8 relative z-10">
-          <h1 className="text-3xl font-bold text-pureWhite mb-2">Login</h1>
-          <p className="text-softGrey mb-8">Sign in to leave a review</p>
+        <div className="modern-card max-w-md w-full rounded-2xl p-8 relative z-10">
+          <h1 className="text-3xl font-bold text-pureWhite mb-2 text-center">Login</h1>
+          <p className="text-softGrey mb-8 text-center">Sign in to leave a review</p>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-softGrey mb-2">
+              <label className="block text-sm font-medium text-softGrey mb-2 ml-1">
                 Email
               </label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 bg-jetBlack/50 border border-white/10 rounded-lg focus:border-neonAqua focus:ring-1 focus:ring-neonAqua text-pureWhite placeholder-white/20 transition-all outline-none"
+                className="modern-input w-full px-4 py-3 rounded-lg text-pureWhite placeholder-white/30 outline-none"
                 placeholder="john@example.com"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-softGrey mb-2">
+              <label className="block text-sm font-medium text-softGrey mb-2 ml-1">
                 Phone
               </label>
               <input
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-4 py-3 bg-jetBlack/50 border border-white/10 rounded-lg focus:border-neonAqua focus:ring-1 focus:ring-neonAqua text-pureWhite placeholder-white/20 transition-all outline-none"
+                className="modern-input w-full px-4 py-3 rounded-lg text-pureWhite placeholder-white/30 outline-none"
                 placeholder="+1 234 567 8900"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-softGrey mb-2">
+              <label className="block text-sm font-medium text-softGrey mb-2 ml-1">
                 Password *
               </label>
               <input
@@ -84,20 +84,20 @@ const ClientLogin = () => {
                 required
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className="w-full px-4 py-3 bg-jetBlack/50 border border-white/10 rounded-lg focus:border-neonAqua focus:ring-1 focus:ring-neonAqua text-pureWhite placeholder-white/20 transition-all outline-none"
+                className="modern-input w-full px-4 py-3 rounded-lg text-pureWhite placeholder-white/30 outline-none"
                 placeholder="••••••••"
               />
             </div>
 
             {error && (
-              <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg text-sm">
+              <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg text-sm text-center">
                 {error}
               </div>
             )}
 
             <button
               type="submit"
-              className="neon-button w-full py-4 rounded-lg font-bold text-base mt-6"
+              className="neon-button w-full py-4 rounded-lg font-bold text-base mt-6 hover:shadow-[0_0_30px_rgba(0,232,255,0.3)] transition-all duration-300"
             >
               Login
             </button>
@@ -105,14 +105,14 @@ const ClientLogin = () => {
 
           <p className="text-center text-softGrey mt-6">
             Don't have an account?{' '}
-            <Link to="/client/register" className="text-neonAqua hover:text-pureWhite transition-colors">
+            <Link to="/client/register" className="text-neonAqua hover:text-pureWhite transition-colors font-medium">
               Register
             </Link>
           </p>
 
-          <p className="text-center mt-4">
-            <Link to="/" className="text-softGrey hover:text-pureWhite transition-colors text-sm">
-              ← Back to Home
+          <p className="text-center mt-6">
+            <Link to="/" className="text-softGrey hover:text-pureWhite transition-colors text-sm flex items-center justify-center gap-2 group">
+              <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to Home
             </Link>
           </p>
         </div>

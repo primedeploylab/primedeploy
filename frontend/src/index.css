@@ -540,3 +540,42 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* Autofill Fix for Dark Mode - Aggressive */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active,
+.modern-input:-webkit-autofill,
+.modern-input:-webkit-autofill:hover, 
+.modern-input:-webkit-autofill:focus, 
+.modern-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #1A1A1A inset !important;
+    -webkit-text-fill-color: white !important;
+    caret-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: #1A1A1A !important;
+}
+
+/* Modern Input Styles */
+.modern-input {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  color: white !important;
+}
+
+.modern-input:focus {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: #00E8FF;
+  box-shadow: 0 0 15px rgba(0, 232, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.modern-card {
+  background: rgba(20, 20, 20, 0.8) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}

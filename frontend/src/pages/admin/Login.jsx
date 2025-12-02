@@ -26,19 +26,20 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-jetBlack via-charcoal to-jetBlack flex items-center justify-center px-4">
-      <div className="max-w-md w-full rounded-2xl shadow-2xl p-8" style={{
-        background: 'rgba(26, 26, 26, 0.8)',
-        backdropFilter: 'blur(30px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(30px) saturate(180%)',
-        border: '1px solid rgba(0, 232, 255, 0.2)'
-      }}>
-        <h1 className="text-3xl font-bold text-pureWhite mb-2">Admin Login</h1>
-        <p className="text-softGrey mb-8">Sign in to manage your portfolio</p>
+    <div className="min-h-screen bg-jetBlack flex items-center justify-center px-4 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-neonAqua/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-softPurple/10 rounded-full blur-[120px]"></div>
+      </div>
+
+      <div className="modern-card max-w-md w-full rounded-2xl p-8 relative z-10">
+        <h1 className="text-3xl font-bold text-pureWhite mb-2 text-center">Admin Login</h1>
+        <p className="text-softGrey mb-8 text-center">Sign in to manage your portfolio</p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-pureWhite mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-pureWhite mb-2 ml-1">
               Email
             </label>
             <input
@@ -47,13 +48,13 @@ const AdminLogin = () => {
               required
               value={credentials.email}
               onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
-              className="w-full px-4 py-3 bg-jetBlack/50 border border-neonAqua/30 rounded-lg focus:ring-2 focus:ring-neonAqua focus:border-neonAqua text-pureWhite placeholder-softGrey"
+              className="modern-input w-full px-4 py-3 rounded-lg text-pureWhite placeholder-white/30 outline-none"
               placeholder="admin@example.com"
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-pureWhite mb-2">
+            <label htmlFor="password" className="block text-sm font-medium text-pureWhite mb-2 ml-1">
               Password
             </label>
             <input
@@ -62,13 +63,13 @@ const AdminLogin = () => {
               required
               value={credentials.password}
               onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-              className="w-full px-4 py-3 bg-jetBlack/50 border border-neonAqua/30 rounded-lg focus:ring-2 focus:ring-neonAqua focus:border-neonAqua text-pureWhite placeholder-softGrey"
+              className="modern-input w-full px-4 py-3 rounded-lg text-pureWhite placeholder-white/30 outline-none"
               placeholder="••••••••"
             />
           </div>
 
           {error && (
-            <div className="p-4 bg-red-900/30 text-red-400 border border-red-500/30 rounded-lg">
+            <div className="p-4 bg-red-900/30 text-red-400 border border-red-500/30 rounded-lg text-center">
               {error}
             </div>
           )}
@@ -76,7 +77,7 @@ const AdminLogin = () => {
           <button
             type="submit"
             disabled={loading}
-            className="neon-button w-full px-8 py-4 rounded-lg font-semibold disabled:opacity-50"
+            className="neon-button w-full px-8 py-4 rounded-lg font-semibold disabled:opacity-50 hover:shadow-[0_0_30px_rgba(0,232,255,0.3)] transition-all duration-300"
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
