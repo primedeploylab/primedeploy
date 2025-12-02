@@ -66,9 +66,7 @@ const About = () => {
             <motion.h1 variants={itemVariants} className="text-5xl font-bold text-pureWhite mb-6">
               {settings?.about?.title || 'About Us'}
             </motion.h1>
-            <motion.p variants={itemVariants} className="text-2xl text-softGrey max-w-3xl mx-auto">
-              {settings?.about?.subtitle || 'We turn your ideas into powerful digital products.'}
-            </motion.p>
+
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
