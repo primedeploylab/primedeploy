@@ -1,0 +1,542 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default Neon Theme */
+  --color-primary: #00E8FF; /* neonAqua */
+  --color-secondary: #6C63FF; /* softPurple */
+  --color-bg-primary: #0F0F0F; /* jetBlack */
+  --color-bg-secondary: #1A1A1A; /* charcoal */
+  --color-text-primary: #FFFFFF; /* pureWhite */
+  --color-text-secondary: #B0B0B0; /* grey */
+}
+
+[data-theme='bw'] {
+  /* Black & White Theme */
+  --color-primary: #FFFFFF; /* White replaces neonAqua */
+  --color-secondary: #FFFFFF; /* White replaces softPurple */
+  --color-bg-primary: #000000; /* Black */
+  --color-bg-secondary: #111111; /* Dark Grey */
+  --color-text-primary: #FFFFFF; /* White */
+  --color-text-secondary: #888888; /* Grey */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(180deg, #000000 0%, #050505 100%);
+  color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  /* Glassmorphism - Ultra Transparent */
+  .glass {
+    background: rgba(26, 26, 26, 0.3);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-dark {
+    background: rgba(15, 15, 15, 0.25);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card {
+    background: rgba(26, 26, 26, 0.25);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(0, 232, 255, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border: 1px solid #00E8FF;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 232, 255, 0.3);
+  }
+
+  /* Magnetic Button Effect */
+  .magnetic-button {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hover Lift Effect */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Gradient Border Animation */
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(#1A1A1A, #1A1A1A) padding-box,
+                linear-gradient(135deg, #00E8FF, #6C63FF) border-box;
+    border: 2px solid transparent;
+    border-radius: 1rem;
+  }
+
+  .gradient-border-animated {
+    position: relative;
+    background: linear-gradient(#1A1A1A, #1A1A1A) padding-box,
+                linear-gradient(135deg, #00E8FF, #6C63FF, #00E8FF) border-box;
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Pulse Glow Effect */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(0, 232, 255, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(0, 232, 255, 0.8), 0 0 60px rgba(108, 99, 255, 0.4);
+    }
+  }
+
+  /* Modern Trendy Buttons */
+  .neon-button {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 232, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 232, 255, 0.2);
+    color: #FFFFFF;
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 9999px;
+  }
+
+  .neon-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 232, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .neon-button:hover::before {
+    left: 100%;
+  }
+
+  .neon-button:hover {
+    background: rgba(0, 232, 255, 0.1);
+    border-color: #00E8FF;
+    box-shadow: 0 0 30px rgba(0, 232, 255, 0.6), 0 0 60px rgba(108, 99, 255, 0.4);
+    transform: translateY(-2px) scale(1.02);
+    text-shadow: 0 0 8px rgba(0, 232, 255, 0.8);
+  }
+
+  .neon-button:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 0 15px rgba(0, 232, 255, 0.4);
+  }
+
+  .neon-button-sm {
+    background: linear-gradient(135deg, #00E8FF, #6C63FF);
+    color: #FFFFFF;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neon-button-sm:hover {
+    box-shadow: 0 0 20px rgba(0, 232, 255, 0.5), 0 0 40px rgba(108, 99, 255, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .neon-button-outline {
+    background: transparent;
+    border: 2px solid #00E8FF;
+    color: #00E8FF;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neon-button-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #00E8FF, #6C63FF);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+
+  .neon-button-outline:hover::before {
+    width: 100%;
+  }
+
+  .neon-button-outline:hover {
+    color: #FFFFFF;
+    border-color: #6C63FF;
+    box-shadow: 0 0 25px rgba(0, 232, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .neon-button-secondary {
+    background: rgba(108, 99, 255, 0.1);
+    border: 1px solid #6C63FF;
+    color: #6C63FF;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .neon-button-secondary:hover {
+    background: #6C63FF;
+    color: #FFFFFF;
+    box-shadow: 0 0 20px rgba(108, 99, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Neon Glow Effects - Midnight Neon Aqua */
+  .neon-glow {
+    text-shadow: 
+      0 0 10px rgba(0, 232, 255, 0.8),
+      0 0 20px rgba(0, 232, 255, 0.6),
+      0 0 30px rgba(0, 232, 255, 0.4),
+      0 0 40px rgba(0, 232, 255, 0.2);
+  }
+
+  .neon-text {
+    color: #00E8FF;
+    text-shadow: 
+      0 0 10px rgba(0, 232, 255, 0.8),
+      0 0 20px rgba(0, 232, 255, 0.6);
+  }
+
+  .neon-underline {
+    border-bottom: 3px solid #00E8FF;
+    box-shadow: 
+      0 2px 15px rgba(0, 232, 255, 0.7),
+      0 2px 25px rgba(0, 232, 255, 0.5);
+  }
+
+  .neon-border {
+    border: 2px solid #00E8FF;
+    box-shadow: 
+      0 0 15px rgba(0, 232, 255, 0.6),
+      0 0 25px rgba(0, 232, 255, 0.4),
+      inset 0 0 15px rgba(0, 232, 255, 0.2);
+  }
+
+  .neon-number {
+    color: #00E8FF;
+    text-shadow: 
+      0 0 10px rgba(0, 232, 255, 1),
+      0 0 20px rgba(0, 232, 255, 0.8),
+      0 0 30px rgba(0, 232, 255, 0.6),
+      0 0 40px rgba(0, 232, 255, 0.4);
+    font-weight: 700;
+  }
+}
+
+
+/* Skill icons auto-scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 5s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Modern Scroll Reveal Animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parallax Effect */
+.parallax {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tilt Effect on Hover */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.tilt-card:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
+}
+
+/* Shimmer Loading Effect */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(26, 26, 26, 0) 0%,
+    rgba(0, 232, 255, 0.1) 50%,
+    rgba(26, 26, 26, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Floating Animation */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Glow on Scroll */
+.glow-on-scroll {
+  transition: all 0.3s ease;
+}
+
+.glow-on-scroll.active {
+  box-shadow: 0 0 40px rgba(0, 232, 255, 0.4), 0 0 80px rgba(108, 99, 255, 0.2);
+}
+
+/* Stagger Animation for Lists */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: staggerFadeIn 0.5s ease forwards;
+}
+
+@keyframes staggerFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Custom scrollbar - Midnight Neon */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F0F0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00E8FF, #6C63FF);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00E8FF;
+  box-shadow: 0 0 10px rgba(0, 232, 255, 0.5);
+}
+
+/* Prose styles for blog content */
+.prose {
+  color: #FFFFFF;
+  max-width: 65ch;
+}
+
+.prose h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #bf00ff;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #bf00ff;
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+  color: #FFFFFF;
+}
+
+.prose a {
+  color: #bf00ff;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: #e056fd;
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  color: #FFFFFF;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  border: 1px solid #bf00ff;
+}
+
+.prose code {
+  background-color: #1A1A1A;
+  color: #bf00ff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.prose pre {
+  background-color: #1A1A1A;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid #bf00ff;
+}
+
+.prose blockquote {
+  border-left: 4px solid #bf00ff;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #B0B0B0;
+  margin: 1.5rem 0;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Admin Panel Text Visibility Fix */
+.bg-white .text-darkNavy,
+.bg-lightBlue .text-darkNavy {
+  color: #0F1D40 !important;
+}
+
+.bg-darkNavy {
+  background-color: #0F1D40 !important;
+}
+
+.bg-lightBlue {
+  background-color: #F0F4F8 !important;
+}
+
+/* Admin Input Text Color Fix */
+.bg-white input,
+.bg-white textarea,
+.bg-lightBlue input,
+.bg-lightBlue textarea {
+  color: #0F1D40 !important;
+}
+
+.bg-lightBlue textarea::placeholder {
+  color: #6B7280 !important;
+}
+
+/* 3D Spin Animation */
+@keyframes spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.animate-spin-3d {
+  animation: spin 30s linear infinite;
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
