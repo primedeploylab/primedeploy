@@ -1,0 +1,1 @@
+copy "C:\Users\vikas\.gemini\antigravity\brain\53d108c4-23c8-4b02-8039-7afd19b40960\prime_deploy_logo_wings_1764666765752.png" "c:\Users\vikas\OneDrive\Desktop\primedeploy\deployprime-portfolio\frontend\src\assets\logo.png"

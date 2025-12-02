@@ -30,7 +30,7 @@ const Footer = () => {
           <div className="lg:col-span-5">
             <Link to="/" className="block mb-8">
               {settings?.logoUrl ? (
-                <img src={settings.logoUrl} alt="DeployPrime" className="h-16" />
+                <img src={settings.logoUrl} alt="DeployPrime" className="h-24" />
               ) : (
                 <span className="text-5xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-pureWhite to-softGrey">
                   DeployPrime
